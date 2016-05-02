@@ -1,0 +1,65 @@
+<div ng-controller="QuoteCtrl">
+
+    <div id="navbar">
+        <md-whiteframe class="md-whiteframe-z1" layout="row" layout-align="center center" style="height: 100%;">
+            语录详细
+        </md-whiteframe>
+    </div>
+
+    <div layout="row"
+         layout-align="center">
+
+        <md-card flex="80"
+                 flex-md="95"
+                 flex-sm="95">
+
+            <md-card-content layout="row"
+                             layout-align="center">
+
+                <div layout="column">
+
+                    <h1 class="md-title text-center">相关人物</h1>
+
+                    <div layout="row"
+                         layout-align="space-between"
+                         layout-wrap>
+
+                        <span ng-repeat="character in quote.characters"
+                              ui-sref="character.quotes({characterId: character._id})">
+
+                            <img class="avatar avatar-lg mg-h"
+                                 ng-if="character.avatar"
+                                 ng-src="{{ cdn.domain + character.avatar }}"
+                                 />
+
+                            <img class="avatar avatar-lg mg-h"
+                                 ng-if="!character.avatar"
+                                 bd-avatar
+                                 bd-avatar-text="{{ character.name }}" />
+
+                            <md-tooltip md-direction="down"
+                                        md-delay="0">{{ character.name }}</md-tooltip>
+
+                        </span>
+                    </div>
+                 </div>
+
+            </md-card-content>
+
+            <md-divider></md-divider>
+
+            <md-card-content layout="column">
+                <div class="md-subhead" marked="quote.quote"></div>
+
+                <div layout="row" layout-align="end">
+                    <h1 class="md-subhead" ng-bind-template="出自 —— {{ quote.reference }}"></h3>
+                </div>
+            </md-card-content>
+
+        </md-card>
+
+    </div>
+
+    <div ng-include="'views/partials/fabMenu.html'"></div>
+
+</div>

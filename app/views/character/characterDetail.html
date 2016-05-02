@@ -1,0 +1,47 @@
+<div layout="row"
+     layout-align="center"
+     ng-controller="CharacterCtrl"
+     >
+    <md-card flex="80"
+             flex-md="95"
+             flex-sm="95">
+
+        <md-card-content layout="row"
+                         layout-align="center center">
+            <img class="avatar avatar-lg mg-h"
+                 ng-if="character.avatar"
+                 ng-src="{{ cdn.domain + character.avatar }}"
+                 />
+
+            <img class="avatar avatar-lg mg-h"
+                 ng-if="!character.avatar"
+                 bd-avatar
+                 bd-avatar-text="{{ character.name }}" />
+            <p class="md-title"
+               ng-bind="character.name"></p>
+
+        </md-card-content>
+
+        <md-divider></md-divider>
+
+        <md-card-content>
+
+            <h1 class="md-title">角色别名</h1>
+            <span class="my-chip"
+                  ng-if="character.alias.length > 0"
+                  ng-repeat="alias in character.alias"
+                  ng-bind="alias"></span>
+            <p ng-if="character.alias.length === 0"
+               class="md-body-1">无</p>
+
+            <h1 class="md-title">角色简介</h1>
+            <p class="md-body-1"
+               ng-bind-template="{{ character.info || '无' }}"></p>
+
+        </md-card-content>
+
+    </md-card>
+
+    <div ng-include="'views/partials/fabMenu.html'"></div>
+
+</div>

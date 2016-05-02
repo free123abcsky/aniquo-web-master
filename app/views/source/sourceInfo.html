@@ -1,0 +1,40 @@
+<div layout="column"
+     flex-lg="60"
+     flex-md="80"
+     offset-lg="20"
+     offset-md="10"
+     offset-sm="0"
+     ng-controller="SourceCtrl">
+
+    <md-card>
+        <md-list>
+            <md-item>
+                <md-item-content>
+
+                    <div class="md-tile-left cover cover-medium">
+                        <div width="150"
+                             height="150"
+                             bd-bg-image="{{ g.currentSource.cover }}"
+                             ng-if="g.currentSource.cover && g.currentSource.cover.length > 20"></div>
+
+                        <img class="border-common"
+                             src="http://placehold.it/150x150"
+                             ng-if="!g.currentSource.cover || g.currentSource.cover.length < 20" />
+                    </div>
+
+                    <div class="md-tile-content">
+                        <h2 ng-bind="g.currentSource.name"></h2>
+                        <h3 ng-if="g.currentSource.alias.length !== 0">
+                            <span>别名：</span>
+                            <span class="margin-right-10"
+                                  ng-repeat="alias in g.currentSource.alias track by $index"
+                                  ng-bind="alias"></span>
+                        </h3>
+                    </div>
+
+                </md-item-content>
+
+            </md-item>
+        </md-list>
+    </md-card>
+</div>

@@ -1,0 +1,35 @@
+<div ng-controller="HomeCtrl">
+
+    <div id="navbar">
+
+        <md-whiteframe class="md-whiteframe-z1" layout="row" layout-align="center center" style="height: 100%;">
+            <md-tabs flex="80"
+                     flex-sm="100"
+                     md-selected="selectedIndex"
+                     >
+                <md-tab label="作品"></md-tab>
+                <md-tab label="角色"></md-tab>
+                <md-tab label="语录"></md-tab>
+            </md-tabs>
+        </md-whiteframe>
+
+    </div>
+
+    <ng-switch on="selectedIndex">
+        <div ng-switch-when="0">
+            <div ng-controller="SourceListCtrl"
+                 ng-include="'/views/source/sourceList.html'"></div>
+        </div>
+        <div ng-switch-when="1">
+            <div ng-controller="CharacterListCtrl"
+                 ng-include="'/views/character/characterList.html'"></div>
+        </div>
+        <div ng-switch-when="2">
+            <div ng-controller="QuoteListCtrl"
+                 ng-include="'/views/quote/quoteList.html'"></div>
+        </div>
+    </ng-switch>
+
+    <div ng-include="'/views/partials/fabMenu.html'"></div>
+
+</div>

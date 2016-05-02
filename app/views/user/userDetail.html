@@ -1,0 +1,77 @@
+<div>
+
+    <div id="navbar">
+        <md-whiteframe class="md-whiteframe-z1" layout="row" layout-align="center center" style="height: 100%;">
+            用户信息
+        </md-whiteframe>
+    </div>
+
+    <div layout="row"
+         layout-align="center">
+
+        <md-card flex="80"
+                 flex-md="95"
+                 flex-sm="95">
+
+            <md-card-content layout="row"
+                             layout-align="center">
+
+                <div layout="column">
+
+                    <div layout="row"
+                         layout-align="center">
+
+                        <img class="avatar avatar-lg mg-h"
+                             ng-if="user.avatar"
+                             ng-src="{{ cdn.domain + user.avatar }}"
+                             />
+
+                        <img class="avatar avatar-lg mg-h"
+                             ng-if="!user.avatar"
+                             bd-avatar
+                             bd-avatar-text="{{ user.nickname }}" />
+
+                    </div>
+
+                    <h1 class="md-title text-center"
+                        ng-bind-template="{{ user.email || '?' }}"></h1>
+
+                 </div>
+
+            </md-card-content>
+
+            <md-divider></md-divider>
+
+            <md-card-content layout="column">
+                <h1 class="md-title">用户名</h1>
+                <p class="md-body-1"
+                   ng-bind-template="{{ user.username || '无' }}"></p>
+
+                <h1 class="md-title">昵称</h1>
+                <p class="md-body-1"
+                   ng-bind-template="{{ user.nickname || '无' }}"></p>
+
+                <h1 class="md-title">个人介绍</h1>
+                <p class="md-body-1"
+                   ng-bind-template="{{ user.info || '无' }}"></p>
+
+                <h1 class="md-title">个人网站</h1>
+                <p class="md-body-1"
+                   ng-bind-template="{{ user.site || '无' }}"></p>
+
+            </md-card-content>
+
+        </md-card>
+
+    </div>
+
+        <md-button id="fab"
+                   class="md-fab" aria-label="Add Character"
+                   ng-if="session.isLogin() && session.currentUser._id === user._id"
+                   ui-sref="userSettings"
+                   >
+            <md-tooltip md-direction="left">编辑个人资料</md-tooltip>
+            <md-icon class="zmdi zmdi-edit zmdi-hc-lg"></md-icon>
+        </md-button>
+
+</div>

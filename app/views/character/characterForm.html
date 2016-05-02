@@ -1,0 +1,87 @@
+<form name="characterForm"
+      ng-controller="CharacterEditCtrl">
+    <div id="navbar">
+        <md-whiteframe class="md-whiteframe-z1" layout="row" layout-align="center center" style="height: 100%;">
+            编辑角色
+        </md-whiteframe>
+    </div>
+
+    <div layout="row" layout-align="center">
+
+        <md-card class="form-wrapper"
+                 flex="60"
+                 flex-md="80"
+                 flex-sm="95"
+                 >
+
+            <md-card-content layout="row"
+                             layout-align="center">
+                <canvas id="characterAvatar"
+                        class="avatar avatar-lg"
+                        bd-image-selected
+                        selected-file="character.avatarFile"
+                        layout-fill></canvas>
+                <input type="file" accept="image/*" class="hidden">
+            </md-card-content>
+
+            <md-divider></md-divider>
+
+            <md-card-content>
+
+                <md-autocomplete
+                    md-no-cache="true"
+                    md-search-text="sourceKeyword"
+                    md-items="item in querySource(sourceKeyword)"
+                    md-item-text="item.name"
+                    md-selected-item="character.source"
+                    md-floating-label="角色所属作品"
+                    >
+
+                    <md-item-template>
+                        <span md-highlight-text="sourceKeyword">{{item.name}}</span>
+                    </md-item-template>
+                    <md-not-found>
+                        没有找到相关作品
+                    </md-not-found>
+                </md-autocomplete>
+
+                <md-input-container>
+                    <label>角色名字</label>
+                    <input type="text" name="name" ng-model="character.name" required>
+                    <div ng-messages="characterForm.name.$error" ng-if="characterForm.name.$dirty">
+                        <div ng-message="required">角色名字不能为空</div>
+                    </div>
+                </md-input-container>
+
+                <md-chips
+                    ng-model="character.alias"
+                    placeholder="角色别名"
+                    secondary-placeholder="新增别名"></md-chips>
+
+                <md-input-container>
+                    <label>角色简介</label>
+                    <textarea ng-model="character.info"></textarea>
+                </md-input-container>
+
+            </md-card-content>
+
+            <md-divider></md-divider>
+
+            <md-card-content
+                layout="row"
+                layout-align="end">
+
+                <md-button class="md-raised md-primary"
+                           flex="15"
+                           flex-md="20"
+                           flex-sm="30"
+                           ng-disabled="submitting || characterForm.$invalid"
+                           ng-click="submit()">提交</md-button>
+
+            </md-card-content>
+
+        </md-card>
+
+    </div>
+
+</form>

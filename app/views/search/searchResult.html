@@ -1,0 +1,11 @@
+<div layout="column">
+
+    <div ng-if="viewType === 'source'">
+        <div ng-include="'views/source/sourceList.html'"></div>
+    </div>
+
+    <div ng-if="viewType === 'character'">
+        <div ng-include="'views/character/characterList.html'"></div>
+    </div>
+
+</div>

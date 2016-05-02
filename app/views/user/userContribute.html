@@ -1,0 +1,30 @@
+<div>
+
+    <md-tabs md-theme="blue" selected="selectedIndex" center>
+          <md-tab label="作品"
+                  bd-linkify="/user/contribution/sources"></md-tab>
+          <md-tab label="角色"
+                  bd-linkify="/user/contribution/characters"></md-tab>
+          <md-tab label="语录"
+                  bd-linkify="/user/contribution/quotes"></md-tab>
+    </md-tabs>
+
+    <div layout="column">
+
+        <!-- sources -->
+        <div ng-if="selectedIndex === 0">
+            <div ng-include="'views/source/sourceList.html'"></div>
+        </div>
+
+        <!-- characters -->
+        <div ng-if="selectedIndex === 1">
+            <div ng-include="'views/character/characterList.html'"></div>
+        </div>
+
+        <!-- quotes -->
+        <div ng-if="selectedIndex === 2">
+            <div ng-include="'views/quote/quoteList.html'"></div>
+        </div>
+    </div>
+
+</div>

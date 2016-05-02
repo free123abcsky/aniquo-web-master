@@ -1,0 +1,47 @@
+<div>
+    <div layout="row"
+         layout-align="center">
+
+        <md-card flex="80"
+                 flex-md="95"
+                 flex-sm="95">
+
+            <md-card-content>
+
+                <form layout="row"
+                      layout-sm="column"
+                      name="searchForm"
+                      ng-submit="getResults()">
+
+                    <md-input-container flex="15"
+                                        flex-sm="100">
+                        <label>类型</label>
+                        <md-select name="type" ng-model="search.type" required>
+                            <md-option value="source">作品</md-option>
+                            <md-option value="character">角色</md-option>
+                        </md-select>
+                        <div class="errors" ng-messages="searchForm.type.$error" ng-if="searchForm.$dirty">
+                            <div ng-message="required">搜索类型不能为空</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex="85"
+                                        flex-sm="100">
+                        <label>搜索内容</label>
+                        <input type="text"
+                               name="keyword"
+                               ng-model="search.keyword"
+                               required />
+                        <div ng-messages="searchForm.keyword.$error" ng-if="searchForm.keyword.$dirty">
+                            <div ng-message="required">搜索内容不能为空</div>
+                        </div>
+                    </md-input-container>
+                </form>
+
+            </md-card-content>
+
+        </md-card>
+
+    </div>
+
+</div>

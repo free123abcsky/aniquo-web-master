@@ -1,0 +1,86 @@
+<div
+    layout="row"
+    layout-align="center">
+
+    <div
+        layout="row"
+        flex="80"
+        flex-sm="100"
+        infinite-scroll="getObjects()"
+        infinite-scroll-disabled="q.isQuerying || q.noMoreData"
+        infinite-scroll-distance='1'
+        infinite-scroll-container="'#content-body-wrapper'">
+
+        <div layout="column" layout-fill>
+
+            <div layout="row"
+                 layout-align="space-between"
+                 flex="80"
+                 flex-md="100"
+                 flex-sm="100"
+                 layout-wrap>
+
+                <md-card
+                    class="source-wrapper mg-h-0"
+                    flex="30"
+                    flex-md="45"
+                    flex-sm="95"
+                    ng-repeat="object in objects track by $index">
+
+                    <div ui-sref="source.detail({sourceId: object._id})">
+                        <img bd-image-auto-resize
+                             bd-image-name="{{ object.name }}"
+                             bd-image-background-cover="{{ object.cover }}">
+                    </div>
+
+                    <md-card-content>
+                        <h4 class="md-title"
+                            ng-bind="object.name"
+                            ui-sref="source.characters({sourceId: object._id})"></h4>
+                    </md-card-content>
+
+
+                    <!--  <md-list>
+
+                    <md-list-item class="md-2-line">
+                    <img ng-src="http://placehold.it/40x40" class="md-avatar" alt="" />
+                    <div class="md-list-item-text">
+                    <h3>Aniquo</h3>
+                    <h4 ng-bind-template="Submitted at {{ object.createdAt }}"></h4>
+                    </div>
+                    </md-list-item>
+
+                    </md-list>
+
+                    <md-divider></md-divider>
+
+                    -->
+
+                    <!--                     <md-card-content>
+                    <span class="icon-group">
+                    <md-icon md-font-icon="mdi-remove-red-eye"></md-icon>
+                    <span class="icon-group-text"
+                    ng-bind="object.viewsCount"></span>
+                    </span>
+                    <span class="icon-group">
+                    <md-icon md-font-icon="mdi-person"></md-icon>
+                    <span class="icon-group-text"
+                    ng-bind="object.charactersCount"></span>
+                    </span>
+                    <span class="icon-group">
+                    <md-icon md-font-icon="mdi-textsms"></md-icon>
+                    <span class="icon-group-text"
+                    ng-bind="object.quotesCount"></span>
+                    </span>
+                    </md-card-content>
+                    -->
+                </md-card>
+
+            </div>
+
+            <div bd-tracker></div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,131 @@
+// modules
+@import 'base/variables';
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+[ng-click], [ui-sref] {
+    cursor: pointer;
+}
+
+// utility attributes
+[block] {
+    display: block !important;
+}
+
+[inline-block] {
+    display: inline-block !important;
+}
+
+[table] {
+    display: table !important;
+}
+
+[ng-click] {
+    outline: 0;
+}
+
+// md-radio-group
+md-radio-group {
+    border: 0;
+
+    md-radio-button:first-of-type {
+        margin-left: 0;
+    }
+}
+
+// md-subheader
+.md-subheader {
+    margin-right: 0;
+}
+
+.md-subheader:not(.md-sticky-no-effect):after {
+    right: 0;
+}
+
+// md-list
+md-list {
+    .md-tile-left {
+        margin-right: 0;
+    }
+
+    &.md-list-dropdown {
+        border-left: @border-common;
+        border-right: @border-common;
+        border-bottom: @border-common;
+        position: absolute;
+        z-index: 10;
+        background-color: @color-white;
+
+        .list-result-current, md-item:hover {
+            color: @color-blue-light;
+        }
+
+        div {
+            padding-left: 20px;
+        }
+    }
+
+    .md-tile-content {
+        h2 {
+            margin: 0 0 3px;
+            font-size: 1.1em;
+        }
+    }
+}
+
+// md-input
+md-input-group {
+    .md-input-with-addon {
+        position: relative;
+
+        &.left-addon {
+            input {
+                padding-left: 20px;
+            }
+        }
+
+        &.right-addon {
+            input {
+                padding-right: 20px;
+            }
+        }
+
+        p.left-addon {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        p.right-addon {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        input {
+            height: 56px;
+        }
+    }
+
+    input {
+        min-height: 56px;
+        font-size: 1em !important;
+    }
+}
+
+// md-button
+md-button[block] {
+    .md-button-inner {
+        display: block;
+    }
+}
+
+
+// md-tab
+md-tab {
+    border: 0;
+    outline: 0;
+}

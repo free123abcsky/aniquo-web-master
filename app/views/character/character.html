@@ -1,0 +1,16 @@
+<div class="no-navbar-height">
+    <md-subheader class="md-whiteframe-z1">
+        <div layout="row" layout-align="center">
+            角色信息
+        </div>
+    </md-subheader>
+    <div ng-include="'views/character/characterDetail.html'"></div>
+
+    <div layout="row" layout-align="center">
+        <h1 class="md-title" flex="80" flex-md="95" flex-sm="95">语录列表</h1>
+    </div>
+
+    <div ng-controller="QuoteListCtrl"
+         ng-include="'views/quote/quoteList.html'"></div>
+
+</div>

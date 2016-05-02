@@ -1,0 +1,62 @@
+<div
+    layout="row"
+    layout-align="center">
+
+    <div
+        layout="column"
+        layout-align="center"
+        flex="80"
+        flex-md="95"
+        flex-sm="100"
+        layout-wrap
+        infinite-scroll="getObjects()"
+        infinite-scroll-disabled="q.isQuerying || q.noMoreData"
+        infinite-scroll-distance='1'
+        infinite-scroll-container="'#content-body-wrapper'">
+
+        <div layout="row"
+             layout-align="space-between"
+             layout-align-sm="space-around"
+             layout-wrap
+             >
+
+            <md-card class="mg-h-0"
+                     flex="30"
+                     flex-md="45"
+                     flex-sm="95"
+                     ng-repeat="object in objects"
+                     ui-sref="character.detail({characterId: object._id})"
+                     ui-sref-opts="{reload: true}">
+
+                <md-card-content>
+
+                    <div layout="cow" layout-align="start center">
+                        <img class="avatar avatar-md mg-r"
+                             ng-if="object.avatar"
+                             ng-src="{{ cdn.domain + object.avatar }}">
+                        <img class="avatar avatar-md mg-r"
+                             ng-if="!object.avatar"
+                             bd-avatar
+                             bd-avatar-text="{{ object.name }}">
+                        <h3 class="md-subhead" ng-bind="object.name"></h3>
+                    </div>
+
+                </md-card-content>
+
+                <md-divider></md-divider>
+
+                <md-card-content>
+
+                    <p class="md-body-1 mg-0"
+                       ng-bind-template="{{ object.info.length === 0 ? '无' : '' }}{{  object.info | limitTo: 60 }}{{ object.info.length > 60 ? '...' : '' }}"></p>
+
+                </md-card-content>
+            </md-card>
+
+        </div>
+
+        <div bd-tracker></div>
+
+    </div>
+
+</div>

@@ -1,0 +1,26 @@
+#content-body-wrapper {
+    width: 100%;
+    height: calc(~'100vh - 64px');
+    padding: @navbar-height 0 0;
+    background-color: @bg-color-gray;
+}
+
+.no-navbar-height {
+    margin-top: -1 * @navbar-height;
+}
+
+#navbar {
+    width: 100%;
+    height: @navbar-height;
+    position: fixed;
+    top: @header-height;
+    left: 0;
+    z-index: 9;
+    background: rgba(255,255,255,0.85);
+}
+
+#fab {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+}
